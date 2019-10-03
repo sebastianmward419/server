@@ -1,26 +1,25 @@
-import java.net.*; 
-import java.io.*; 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server {
-    public static void main (String[] args) {
-        startServer (3000);
-    }
 
-    public static void startServer (int port) {
-        try 
-            {
-                ServerSocket server = new ServerSocket (port);
-                
-                System.out.println ("Server Started"); 
-                System.out.println ("Waiting for client");
+  protected static int port = 3000;  
+  protected static String indexHTML = "./public/index.html"; 
 
-                Socket socket = server.accept ();
+  public static void main (String[] args) {
+    try 
+        {
+            ServerSocket server = new ServerSocket ();
+        }
+    catch (IOException err)
+        {
+            System.out.println (err);
+        }
+  }
 
-                System.out.println ("Client Accepted");
-            }
-        catch (IOException err)
-            {
-                System.out.println (err);
-            }
-    }
 }
